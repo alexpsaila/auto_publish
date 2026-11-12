@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": "w1-sold-out",
+      "at": "2026-11-16T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-3-sold-out.jpg",
+      "caption": "Ran out of the lampuki at 1pm? Switch it off from your phone and it's gone from the menu straight away.\n\nTry Menoro free for 14 days: menoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w1-bumper",
+      "at": "2026-11-18T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "malta-bumper.mp4",
+      "caption": "Change a price without reprinting 200 menus.\n\nFree for 14 days. No card needed.\nmenoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w1-online-in-minutes",
+      "at": "2026-11-20T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-2-online-in-minutes.jpg",
+      "caption": "Upload your PDF or a photo and your menu is online in minutes, with Ħ, Ż and Ġ exactly where they belong.\n\nSend us your menu and we'll set it up for you: menoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w1-square",
+      "at": "2026-11-22T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "malta-square.mp4",
+      "caption": "One day at a Maltese restaurant, without a single reprint.\n\nTry Menoro free for 14 days: menoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w2-languages",
+      "at": "2026-11-23T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-4-languages.jpg",
+      "caption": "One menu, three languages. Guests switch between English, Italian and Spanish themselves.\n\nmenoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w2-intl-hook-a",
+      "at": "2026-11-25T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "intl-30s-hook-a.mp4",
+      "caption": "POV: your menu is in 3 languages and you didn't translate a word.\n\nOne QR code, every guest reads it their way. Try Menoro free for 14 days: menoro.app\n\n#restaurantowner #digitalmenu #qrmenu #tourism #hospitality #menoro"
+    },
+    {
+      "id": "w2-allergens",
+      "at": "2026-11-27T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-5-allergens.jpg",
+      "caption": "EU allergen labels without the paperwork. Tag a whole section in one tap.\n\nmenoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w2-malta-20s",
+      "at": "2026-11-29T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "malta-20s.mp4",
+      "caption": "Ran out? One tap. New price? One tap. Tourists at the table? Already translated.\n\nFree for 14 days: menoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w3-three-looks",
+      "at": "2026-11-30T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-6-three-looks.jpg",
+      "caption": "Minimal for fine dining, Casual for the lunch crowd, Evening for the wine list. Same menu, your style.\n\nmenoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w3-intl-hook-c",
+      "at": "2026-12-02T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "intl-30s-hook-c.mp4",
+      "caption": "Table 6 is reading your menu in Spanish. You didn't translate a word.\n\nTry Menoro free for 14 days: menoro.app\n\n#restaurantowner #digitalmenu #qrmenu #tourism #hospitality #menoro"
+    },
+    {
+      "id": "w3-offer",
+      "at": "2026-12-04T09:30:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "post-7-offer.jpg",
+      "caption": "Never reprint a menu again.\n\nSend us your menu and we'll set it up for you. Free for 14 days, then €19 a month. No card needed.\nmenoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    },
+    {
+      "id": "w3-malta-30s",
+      "at": "2026-12-06T16:00:00+01:00",
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "media": "malta-30s.mp4",
+      "caption": "POV: you changed a price without reprinting 200 menus.\n\nMenoro puts your menu online in minutes. Free for 14 days: menoro.app\n\n#restaurantowner #maltarestaurants #digitalmenu #qrmenu #menoro"
+    }
+  ]
+}
