@@ -56,6 +56,8 @@ async function toInstagram(p) {
   return (await call(`${IG_ID}/media_publish`, { creation_id: id })).id;
 }
 const SEND = { facebook: toFacebook, instagram: toInstagram };
+// A post may give a different caption for one platform: "captions": { "instagram": "…" }. Otherwise "caption" is used.
+const captionFor = (p, platform) => p.captions?.[platform] ?? p.caption;
 
 let done = 0, failed = 0;
 const ids = new Set();
@@ -71,9 +73,9 @@ for (const p of posts) {
     if (!SEND[platform]) { console.error(`Unknown platform ${platform} on ${p.id}`); continue; }
     if (ageH > STALE_HOURS) { if (!DRY) { state[key] = { skipped: "stale", at: now.toISOString() }; save(); } console.log(`SKIP  ${key} (was due ${p.at}, too old to post)`); continue; }
     if (done >= MAX_PER_RUN * p.platforms.length) { console.log(`LATER ${key} (per-run limit)`); continue; }
-    if (DRY) { console.log(`WOULD POST ${key}\n  media: ${url(p.media)}\n  caption: ${p.caption.split("\n")[0]}…`); done++; continue; }
+    if (DRY) { console.log(`WOULD POST ${key}\n  media: ${url(p.media)}\n  caption: ${captionFor(p, platform).split("\n")[0]}…`); done++; continue; }
     try {
-      const id = await SEND[platform](p);
+      const id = await SEND[platform]({ ...p, caption: captionFor(p, platform) });
       state[key] = { id, at: new Date().toISOString() }; save();   // saved after every post so a crash never causes a repeat
       console.log(`POSTED ${key} → ${id}`); done++;
     } catch (e) { failed++; console.error(`FAILED ${key}: ${e.message}`); }

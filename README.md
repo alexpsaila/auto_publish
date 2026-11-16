@@ -46,7 +46,9 @@ TikTok is not included: its posting API needs an app review, and the Menoro TikT
    }
    ```
    `id` must be unique. `at` is Malta time; use `+01:00` in winter and `+02:00` in summer.
-3. Commit and push. It publishes at the next hourly run after `at`.
+   To give Instagram its own text (for example "Link in bio" where Facebook gets a link), add `"captions": { "instagram": "..." }`; Facebook then uses `caption`.
+   Never change the `id` of a post that is already in the schedule: it would be posted again.
+3. Commit and push. It publishes at the next run after `at`. GitHub's free timer often runs only every 4 to 9 hours, so set morning posts to 06:00 and afternoon posts to 12:00.
 
 ## Safety rules built in
 
