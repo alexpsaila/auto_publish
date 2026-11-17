@@ -61,15 +61,15 @@
     },
     {
       "id": "w2-languages",
-      "at": "2026-11-23T06:00:00+01:00",
+      "at": "2026-11-30T06:00:00+01:00",
       "platforms": [
         "facebook",
         "instagram"
       ],
       "media": "post-4-languages.jpg",
-      "caption": "A table of Italian visitors, a couple from Madrid, and your regulars. Each one reads your menu in their own language, and you only wrote it once.\n\nMenoro adds Italian and Spanish for you. Guests switch language on the menu themselves.\n\nOpen the sample menu and switch it to Italian: https://menoro.app/demo?ref=fb-w2-languages",
+      "caption": "A table of Italian visitors, a couple from Madrid, two Germans at the bar. Each one reads your menu in their own language, and you only wrote it once.\n\nMenoro adds the translations for you. Guests pick their language on the menu themselves.\n\nOpen the sample menu and switch language: https://menoro.app/demo?ref=fb-w2-languages",
       "captions": {
-        "instagram": "A table of Italian visitors, a couple from Madrid, and your regulars. Each one reads your menu in their own language, and you only wrote it once.\n\nMenoro adds Italian and Spanish for you. Open the sample menu and switch it to Italian. Link in bio.\n\n#maltarestaurants #restaurantowner #qrmenu #digitalmenu #maltatourism #menoro"
+        "instagram": "A table of Italian visitors, a couple from Madrid, two Germans at the bar. Each one reads your menu in their own language, and you only wrote it once.\n\nMenoro adds the translations for you. Open the sample menu and switch language. Link in bio.\n\n#maltarestaurants #restaurantowner #qrmenu #digitalmenu #maltatourism #menoro"
       }
     },
     {
@@ -87,7 +87,7 @@
     },
     {
       "id": "w2-allergens",
-      "at": "2026-11-27T06:00:00+01:00",
+      "at": "2026-12-04T06:00:00+01:00",
       "platforms": [
         "facebook",
         "instagram"
@@ -113,7 +113,7 @@
     },
     {
       "id": "w3-three-looks",
-      "at": "2026-11-30T06:00:00+01:00",
+      "at": "2026-11-23T06:00:00+01:00",
       "platforms": [
         "facebook",
         "instagram"
@@ -139,7 +139,7 @@
     },
     {
       "id": "w3-offer",
-      "at": "2026-12-04T06:00:00+01:00",
+      "at": "2026-11-27T06:00:00+01:00",
       "platforms": [
         "facebook",
         "instagram"
