@@ -1,6 +1,6 @@
 # Menoro auto-publisher
 
-Posts scheduled content to the Menoro Facebook Page and Instagram account. You add a post by adding one entry to `content/posts.json`; a GitHub Action checks every hour and publishes whatever is due.
+Posts scheduled content to the Menoro Facebook Page and Instagram account. You add a post by adding one entry to `content/posts.json`; a GitHub Action publishes whatever is due. A small Cloudflare Worker starts that Action at minute 2 of every hour, because GitHub's own timer often runs only every 4 to 9 hours.
 
 TikTok is not included: its posting API needs an app review, and the Menoro TikTok account is a personal one.
 
@@ -12,7 +12,8 @@ TikTok is not included: its posting API needs an app review, and the Menoro TikT
 | `media/` | The images (JPEG) and videos (MP4, with the original background track) the posts use. |
 | `publish.mjs` | The publisher. No dependencies; needs Node 20 or later. |
 | `state/published.json` | Record of what has been posted, so nothing is ever posted twice. The Action updates it. |
-| `.github/workflows/publish.yml` | Runs the publisher every hour. |
+| `.github/workflows/publish.yml` | Runs the publisher when started by the trigger, by hand, or by GitHub's own (slow) backup timer. |
+| `trigger/worker.js` | The Cloudflare Worker that starts the publisher on time every hour. |
 | `get-ids.mjs` | One-off helper that prints the three secrets you need. |
 
 ## Set-up (about 30 minutes, once)
@@ -32,6 +33,18 @@ TikTok is not included: its posting API needs an app review, and the Menoro TikT
 7. **Test without posting.** Actions → "Publish due posts" → Run workflow, with "Preview only" ticked. The log lists what it would post.
 8. **Go live.** Nothing more to do: it runs every hour and posts what is due.
 
+## On-time trigger (Cloudflare, about 10 minutes, once)
+
+GitHub's built-in timer is unreliable on free accounts (Friday 20 Nov 2026: a 06:00 post went out at 12:26). A Cloudflare Worker starts the publisher at minute 2 of every hour instead. GitHub's timer stays on as a backup.
+
+1. **GitHub token (only you).** github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name `menoro-publisher trigger`, expiration 1 year, Repository access **Only select repositories** → `alexpsaila/auto_publish`, Permissions → Repository → **Actions: Read and write** (nothing else). Generate and copy it. Put a reminder in your calendar 11 months from now.
+2. **Worker.** dash.cloudflare.com → Workers & Pages → Create → Worker → name `menoro-publisher-trigger` → Deploy. Then Edit code, replace everything with `trigger/worker.js`, and Deploy.
+3. **Secret.** The Worker → Settings → Variables and Secrets → Add → type **Secret**, name `GITHUB_TOKEN`, paste the token → Deploy.
+4. **Timer.** The Worker → Settings → Trigger events → Add → Cron trigger → `2 * * * *` (every hour at minute 2, UTC) → Add.
+5. **Check.** After the next full hour, GitHub → Actions → "Publish due posts" shows a run started by `workflow_dispatch` at about minute 2.
+
+When the token expires (or if runs stop appearing at minute 2), make a new token as in step 1 and replace the secret in step 3.
+
 ## Adding a post
 
 1. Put the image (`.jpg`) or video (`.mp4`) in `media/`. Instagram accepts only JPEG images.
@@ -48,7 +61,7 @@ TikTok is not included: its posting API needs an app review, and the Menoro TikT
    `id` must be unique. `at` is Malta time; use `+01:00` in winter and `+02:00` in summer.
    To give Instagram its own text (for example "Link in bio" where Facebook gets a link), add `"captions": { "instagram": "..." }`; Facebook then uses `caption`.
    Never change the `id` of a post that is already in the schedule: it would be posted again.
-3. Commit and push. It publishes at the next run after `at`. GitHub's free timer often runs only every 4 to 9 hours, so set morning posts to 06:00 and afternoon posts to 12:00.
+3. Commit and push. It publishes at the next run after `at`: a few minutes past the hour with the Cloudflare trigger. If the trigger stops (for example its GitHub token expired), GitHub's backup timer still posts it, but often hours late.
 
 ## Safety rules built in
 
@@ -56,6 +69,7 @@ TikTok is not included: its posting API needs an app review, and the Menoro TikT
 - At most 2 posts per run, so a mistake in the schedule cannot flood the feed.
 - Anything more than 72 hours overdue is skipped, not posted late.
 - If one platform fails, the other still posts, the failed one is retried next hour, and the run shows as failed in Actions so you notice.
+- Two runs never overlap (they queue), and each starts from the latest record, so a post started by the trigger and one by the backup timer can't both go out.
 
 ## Good to know
 

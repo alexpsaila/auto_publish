@@ -1,7 +1,8 @@
 name: Publish due posts
 on:
   schedule:
-    - cron: "7 * * * *"        # every hour, at minute 7 (UTC)
+    - cron: "7 * * * *"        # backup timer: GitHub often runs it only every 4-9 hours.
+                               # The on-time start comes from the Cloudflare trigger (trigger/worker.js).
   workflow_dispatch:
     inputs:
       dry_run:
@@ -16,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # the latest record of what's posted, even if another run finished just before this one
       - uses: actions/setup-node@v4
         with:
           node-version: 20
